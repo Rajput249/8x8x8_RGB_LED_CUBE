@@ -1,8 +1,8 @@
 
 #include <SPI.h>
-#define latch_pin 2
-#define blank_pin 4
-#define data_pin 11
+#define latch_pin 1
+#define blank_pin 3
+#define data_pin 12
 #define clock_pin 13
 int shift_out;
 byte anode[8];
@@ -63,7 +63,7 @@ void loop() {
   allLeds();
 
 
-  delay(500);
+  delay(300);
 }
 void moveSingle() {
 
@@ -120,7 +120,7 @@ void allLeds() {
         }
     delay(10);
   }
-  delay(300);
+  delay(200);
   for (int brightness = 15; brightness >= 0; brightness--) {
     for (int i = 0; i < 8; i++)
       for (int j = 0; j < 8; j++)
@@ -415,7 +415,7 @@ void rainVersionTwo() {
     zz[addr] = random(16);
   }
   start = millis();
-  while (millis() - start < 20000) {
+  while (millis() - start < 10000) {
 
     if (ledcolor < 200) {
       for (addr = 0; addr < leds; addr++) {
@@ -1041,7 +1041,7 @@ void bouncyvTwo() {
 
   start = millis();
 
-  while (millis() - start < 15000) {
+  while (millis() - start < 10000) {
     direct = random(3);
 
     for (addr = 1; addr < ledcount + 1; addr++) {
@@ -1168,7 +1168,7 @@ void sinwaveTwo() {
 
   start = millis();
 
-  while (millis() - start < 15000) {
+  while (millis() - start < 1000) {
     for (addr = 0; addr < 8; addr++) {
       if (sinewavearray[addr] == 7) {
         sinemult[addr] = -1;
